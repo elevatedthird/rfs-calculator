@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> RFS calculator </title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+      }
+      .options {
+        display:flex;
+        text-align: left;
+        justify-content: flex-start;
+        align-items: baseline;
+      }
+      .options > div:first-child {
+        width: 50%;
+        margin-right: 2rem;
+      } 
+      input {
+        padding: .25rem;
+        margin-top: 1rem;
+      }
+      #result:not(:empty) {
+        margin-top: 2rem;
+        background: #ededed;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1> Responsive Font Size calculator </h1>
+    <p> This calculator uses the resizing engine from <a href="https://github.com/twbs/rfs/tree/v9.0.3"> Responsive Font Sizes (rfs) </a> </p>
+    <form id="form">
+        <h2> Config Options </h2>
+        <div class="options">
+          <div>
+            <strong>Breakpoint</strong>   <input required name="breakpoint" placeholder="900px" type="number" value="1200"> px
+            <br>
+            The width of the max width in the media query will be rendered in this unit.
+            <br>
+            <strong>Scale Factor</strong> <input required name="factor" placeholder="10" type="number" min="10" value="10">
+            <br>
+            This value determines the strength of font size resizing. The higher the factor, the less difference there is between values on small screens. The lower the factor, the less influence RFS has, which results in bigger values for small screens
+          </div>
+          <div>
+            <h3> Font Size Unit </h3>
+            REM <input type="radio" name="unit" value="rem">
+            PX  <input type="radio" name="unit" value="px" checked >
+          </div>
+        </div>
+      <div class="options">
+      <div>
+        <h2> Font Sizes (<span id="fs-unit"> px </span>)</h2>
+        H1 size: <input name="h1-size" placeholder="H1 size" type="number" step="0.01"/>
+        <br>
+        H2 size: <input name="h2-size" placeholder="H2 size" type="number" step="0.01"/>
+        <br>
+        H3 size: <input name="h3-size" placeholder="H3 size" type="number" step="0.01"/> 
+        <br>
+        H4 size: <input name="h4-size" placeholder="H4 size" type="number" step="0.01"/> 
+        <br>
+        H5 size: <input name="h5-size" placeholder="H5 size" type="number" step="0.01"/>
+        <br>
+        H6 size: <input name="h6-size" placeholder="H6 size" type="number" step="0.01"/> 
+        <br>
+        Body Size: <input name="body-size" placeholder="Body size" type="number" step="0.01"/>
+      </div>
+        <div>
+          <h2> Screen Size (px) </h2>
+          <input required name='screen-width' placeholder="Screen Size" type="number">
+          <button type="submit"> Get Font Sizes </button>
+          <div id="result"></div>
+        </div>
+      </div>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>
